@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import classes from './Button.module.css'
 
 const Button = (props) => {
+  console.log('Button RUNNING')
+
   return (
     <button
       type={props.type || 'button'}
@@ -15,4 +17,4 @@ const Button = (props) => {
   )
 }
 
-export default Button
+export default memo(Button)
