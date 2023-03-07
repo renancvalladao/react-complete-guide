@@ -39,8 +39,16 @@ function App() {
     fetchMoviesHandler()
   }, [fetchMoviesHandler])
 
-  const addMovieHandler = (movie) => {
-    console.log(movie)
+  const addMovieHandler = async (movie) => {
+    const response = await fetch('https://my-backend.com/', {
+      method: 'POST',
+      body: JSON.stringify(movie),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const data = await response.json()
+    console.log(data)
   }
 
   let content = <p>Found no movies.</p>
